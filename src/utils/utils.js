@@ -36,6 +36,8 @@ export const dinner = (order) => {
   if (order[4] < 1) {
     return "Unable to process: cake must be ordered";
   } else {
-    return `steak, potatoes, wine, cake, water`;
+    return `steak, potatoes, cake, ${
+      order[3] === undefined ? " water" : "wine, water"
+    }`;
   }
 };
