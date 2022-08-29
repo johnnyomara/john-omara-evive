@@ -1,3 +1,7 @@
+// Since there are so many conditionals I decided to break each meal into it's
+// own function to determine output. I think a lot of this could be eliminated
+// by db validators in a production environment.
+
 export const breakfast = (order) => {
   const menu = { 1: "eggs", 2: "toast", 3: "coffee" };
   for (let i = 1; i < 4; i++) {

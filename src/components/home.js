@@ -16,6 +16,9 @@ export class Home extends Component {
     this.setState({ meal: e.target.value });
   }
 
+  // In production I would have definitely displayed this information
+  // differently. I'd also use more elegant error handling since we'd
+  // likely be making calls to the database as well.
   submitOrder(meal, items) {
     const order = { meal: meal };
     items.forEach((element) => {
@@ -40,6 +43,10 @@ export class Home extends Component {
 
   render() {
     const meals = { breakfast: Breakfast, lunch: Lunch, dinner: Dinner };
+    // I went back and forth deciding whether to make each meal its own component
+    // or to render them dynamically based on menu input. I ultimately decided
+    // to make individual components, but I think in production I would make
+    // a reusable meal component to handle everything.
     const Meal = meals[this.state.meal];
     return this.state.meal ? (
       <Meal submitOrder={this.submitOrder} />
